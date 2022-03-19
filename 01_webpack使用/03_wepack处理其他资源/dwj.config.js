@@ -53,7 +53,15 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif)$/,
-        loader: 'file-loader'
+        // loader: 'file-loader'
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'img/[name].[hash:6].[ext]'
+            }
+          }
+        ]
       }
     ]
   }
