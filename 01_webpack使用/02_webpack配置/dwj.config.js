@@ -14,13 +14,14 @@ module.exports = {
     rules: [
       {
         // 正则表达式
-        test: /\.css$/, // 匹配的资源
+        test: /\.css$/, // 匹配的资源  .css结尾的模块
         // loader: 'css-loader', // 简写 use: UseEntry[] 的简写
         use: [
           // {
           //   loader: 'css-loader',
           //   // options: {}
           // },
+          'style-loader',
           'css-loader' // 简写
         ]
       }
