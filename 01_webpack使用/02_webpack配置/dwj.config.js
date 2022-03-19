@@ -23,16 +23,17 @@ module.exports = {
           // },
           'style-loader',
           'css-loader', // 简写
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [
-                  require('autoprefixer')
-                ]
-              }
-            }
-          }
+          'postcss-loader'
+          // {
+          //   loader: 'postcss-loader',
+          //   options: {
+          //     postcssOptions: {
+          //       plugins: [
+          //         require('postcss-preset-env')
+          //       ]
+          //     }
+          //   }
+          // }
         ]
       },
       {
@@ -40,6 +41,7 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader',
+          'postcss-loader',
           'less-loader'
         ]
       }
