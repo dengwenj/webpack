@@ -22,7 +22,17 @@ module.exports = {
           //   // options: {}
           // },
           'style-loader',
-          'css-loader' // 简写
+          'css-loader', // 简写
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  require('autoprefixer')
+                ]
+              }
+            }
+          }
         ]
       },
       {
