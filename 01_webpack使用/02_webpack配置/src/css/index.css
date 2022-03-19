@@ -1,12 +1,1 @@
-.content {
-  color: #12345678;
-}
-
-:fullscreen {
-
-}
-
-.content {
-  user-select: none;
-  transition: all 2s ease;
-}
+@import url('./test.css');

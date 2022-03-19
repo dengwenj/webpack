@@ -22,7 +22,13 @@ module.exports = {
           //   // options: {}
           // },
           'style-loader',
-          'css-loader', // 简写
+          // 'css-loader', // 简写
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
           'postcss-loader'
           // {
           //   loader: 'postcss-loader',
