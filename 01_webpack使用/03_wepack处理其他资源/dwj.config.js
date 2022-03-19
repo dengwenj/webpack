@@ -56,9 +56,11 @@ module.exports = {
         // loader: 'file-loader'
         use: [
           {
-            loader: 'file-loader',
+            // loader: 'file-loader',
+            loader: 'url-loader',
             options: {
-              name: 'img/[name].[hash:6].[ext]'
+              name: 'img/[name].[hash:6].[ext]',
+              limit: 100 * 1024 // 小于 100kb 的转成 base64 大于的放到单独的文件中
             }
           }
         ]
