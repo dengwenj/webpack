@@ -1,5 +1,7 @@
 import  { test } from './test'
 
+import './test/component'
+
 console.log(test)
 
 // webpack 默认会找 ./src/index.js 进行打包
