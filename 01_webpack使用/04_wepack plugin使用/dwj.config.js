@@ -2,13 +2,14 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { DefinePlugin } = require('webpack')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   // 入口文件
   entry: './src/index.js',
   // 出口文件
   output: {
-    filename: 'hh.js',
+    filename: 'js/hh.js',
     // 绝对路劲
     path: path.resolve(__dirname, './dist'),
     // assetModuleFilename: 'img/[name].[hash:6][ext]' // 这个统一都设置为 img 下面了
@@ -35,6 +36,7 @@ module.exports = {
             }
           },
           'postcss-loader'
+          // 在外面单独配置了 postcss.config.js
           // {
           //   loader: 'postcss-loader',
           //   options: {
@@ -108,6 +110,20 @@ module.exports = {
     new DefinePlugin({
       BASE_URL: '"./"',
       hh: '111111'
+    }),
+    // 把 public 里面的文件 cope 到打包的文件夹里面去
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'public',
+          globOptions: {
+            // 要忽略的文件
+            ignore: [
+              '**/index.html'
+            ]
+          }
+        }
+      ]
     })
   ]
 }
