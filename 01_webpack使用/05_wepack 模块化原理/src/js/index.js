@@ -1,5 +1,8 @@
-export const test = '测试'
+const test = '测试'
 
+export {
+  test
+}
 
 // const obj = {
 //   a: 1,

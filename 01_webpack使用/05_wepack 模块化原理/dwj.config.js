@@ -4,15 +4,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { DefinePlugin } = require('webpack')
 
 module.exports = {
-  mode: 'development',
+  // mode: 'development',
   devtool: 'source-map',
   // 入口文件
-  // entry: './src/index.js',
-  entry: './src/common.js',
+  entry: './src/index.js',
+  // entry: './src/common.js',
   // 出口文件
   output: {
     filename: 'js/hh.js',
-    // 绝对路劲
+    // 绝对路径
     path: path.resolve(__dirname, './dist'),
     // assetModuleFilename: 'img/[name].[hash:6][ext]' // 这个统一都设置为 img 下面了
   },
