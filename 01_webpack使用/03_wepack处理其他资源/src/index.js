@@ -1,6 +1,6 @@
-import  { test } from './test'
+import  { test } from './js'
 
-import './test/component'
+import './js/component'
 
 console.log(test)
 

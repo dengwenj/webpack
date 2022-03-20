@@ -75,8 +75,15 @@ module.exports = {
         },
         parser: {
           dataUrlCondition: {
-            maxSize: 500 * 1024
+            maxSize: 100 * 1024
           }
+        }
+      },
+      {
+        test: /\.(woff|eot|ttf|woff2)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'font/[name].[hash:6][ext]'
         }
       }
     ]

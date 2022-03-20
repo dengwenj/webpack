@@ -15,6 +15,10 @@ function component() {
 
   element.appendChild(imgEl)
 
+  const iEL = document.createElement('i')
+  iEL.className = 'iconfont icon-ashbin'
+  element.appendChild(iEL)
+
   return element
 }
 
