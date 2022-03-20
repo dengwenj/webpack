@@ -1,6 +1,7 @@
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { DefinePlugin } = require('webpack')
 
 module.exports = {
   // 入口文件
@@ -102,7 +103,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'hello webpack',
       template: './public/index.html', // 不要默认的 html 文件 自己写 html 文件
-    }), 
+    }),
+    // 允许在编译时创建配置的全局常量
+    new DefinePlugin({
+      BASE_URL: '"./"',
+      hh: '111111'
+    })
   ]
 }
  
