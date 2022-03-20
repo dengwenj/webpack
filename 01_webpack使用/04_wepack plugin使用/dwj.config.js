@@ -1,5 +1,6 @@
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   // 入口文件
@@ -95,7 +96,13 @@ module.exports = {
   },
   // plugins 配置
   plugins: [
-    new CleanWebpackPlugin()
+    // 每次打包把上一次的打包删掉，不留任何的，重新打包
+    new CleanWebpackPlugin(),
+    // 在 打包的文件夹中增加个 html 文件
+    new HtmlWebpackPlugin({
+      title: 'hello webpack',
+      template: './public/index.html', // 不要默认的 html 文件 自己写 html 文件
+    }), 
   ]
 }
  
