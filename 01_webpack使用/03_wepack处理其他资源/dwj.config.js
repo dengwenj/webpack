@@ -7,7 +7,8 @@ module.exports = {
   output: {
     filename: 'hh.js',
     // 绝对路劲
-    path: path.resolve(__dirname, './dist')
+    path: path.resolve(__dirname, './dist'),
+    // assetModuleFilename: 'img/[name].[hash:6][ext]' // 这个统一都设置为 img 下面了
   },
   // loader 配置
   module: {
@@ -54,16 +55,29 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif)$/,
         // loader: 'file-loader'
-        use: [
-          {
-            // loader: 'file-loader',
-            loader: 'url-loader',
-            options: {
-              name: 'img/[name].[hash:6].[ext]',
-              limit: 100 * 1024 // 小于 100kb 的转成 base64 大于的放到单独的文件中
-            }
+        // use: [
+        //   {
+        //     // loader: 'file-loader',
+        //     loader: 'url-loader',
+        //     options: {
+        //       name: 'img/[name].[hash:6].[ext]',
+        //       limit: 100 * 1024 // 小于 100kb 的转成 base64 大于的放到单独的文件中
+        //     }
+        //   }
+        // ]
+        
+        // 用 asset module type
+        // type: 'asset/resource', // 相当于 file-loader
+        // type: 'asset/inline', // 相当于 url-loader 只有一个文件
+        type: 'asset',
+        generator: {
+          filename: 'img/[name].[hash:6][ext]'
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: 500 * 1024
           }
-        ]
+        }
       }
     ]
   }
