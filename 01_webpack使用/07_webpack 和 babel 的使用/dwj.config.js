@@ -17,6 +17,24 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     // assetModuleFilename: 'img/[name].[hash:6][ext]' // 这个统一都设置为 img 下面了
   },
+  // loader
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            // options: {
+            //   presets: [
+            //     '@babel/preset-env'
+            //   ]
+            // }
+          }
+        ]
+      }
+    ]
+  },
   // plugins 配置
   plugins: [
     // 每次打包把上一次的打包删掉，不留任何的，重新打包
