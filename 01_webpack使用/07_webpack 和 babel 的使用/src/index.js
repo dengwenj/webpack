@@ -1,6 +1,7 @@
 import 'core-js/stable'
 import 'regenerator-runtime/runtime'
 
+// preset-env 对应的就是 es2015
 const info = {
   name: 'dwj',
   age: 22

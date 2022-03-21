@@ -8,7 +8,7 @@ module.exports = {
   // 控制是否生成，如何生成 sourceMap
   devtool: 'cheap-module-source-map',
   // 入口文件
-  entry: './src/index.js',
+  entry: './src/react.index.jsx',
   // entry: './src/common.js',
   // 出口文件
   output: {
@@ -21,7 +21,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         // 排除
         exclude: /node_modules/,
         use: [
@@ -30,7 +30,10 @@ module.exports = {
             // options: {
             //   presets: [
             //     '@babel/preset-env'
-            //   ]
+            //   ],
+            //   // plugins: [
+            //   //   '一个个插件'
+            //   // ]
             // }
           }
         ]
@@ -44,7 +47,7 @@ module.exports = {
     // 在 打包的文件夹中增加个 html 文件
     new HtmlWebpackPlugin({
       title: 'hello webpack',
-      // template: './public/index.html', // 不要默认的 html 文件 自己写 html 文件
+      template: './index.html', // 不要默认的 html 文件 自己写 html 文件
     }),
     // 允许在编译时创建配置的全局常量
     new DefinePlugin({

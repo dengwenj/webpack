@@ -8,6 +8,8 @@ module.exports = {
       // entry: 手动在入口文件中导入 core-js、regenerator-runtime，根据目标浏览器引入所有对应的 polyfill
       useBuiltIns: 'entry',
       corejs: 3
-    }]
+    }],
+    // 使用 react 时预设，就意味着很多的插件就会生效，就会正常加载
+    ['@babel/preset-react']
   ]
 }
