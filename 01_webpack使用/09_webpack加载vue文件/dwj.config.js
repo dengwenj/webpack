@@ -2,13 +2,14 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { DefinePlugin } = require('webpack')
+const { VueLoaderPlugin } = require('vue-loader/dist/index')
 
 module.exports = {
   mode: 'development',
   // 控制是否生成，如何生成 sourceMap
   devtool: 'cheap-module-source-map',
   // 入口文件
-  entry: './src/ts.index.ts',
+  entry: './src/index.js',
   // entry: './src/common.js',
   // 出口文件
   output: {
@@ -20,6 +21,15 @@ module.exports = {
   // loader
   module: {
     rules: [
+      {
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          'less-loader'
+        ]
+      },
       {
         test: /\.jsx?$/,
         // 排除
@@ -49,6 +59,14 @@ module.exports = {
             loader: 'babel-loader'
           }
         ]
+      },
+      {
+        test: /\.vue$/,
+        use: [
+          {
+            loader: 'vue-loader'
+          }
+        ]
       }
     ]
   },
@@ -65,7 +83,8 @@ module.exports = {
     new DefinePlugin({
       BASE_URL: '"./"',
       hh: '111111'
-    })
+    }),
+    new VueLoaderPlugin()
   ]
 }
  

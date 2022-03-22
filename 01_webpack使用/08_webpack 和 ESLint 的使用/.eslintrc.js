@@ -4,22 +4,14 @@ module.exports = {
         "commonjs": true,
         "es2021": true
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
-    ],
-    "parser": "@typescript-eslint/parser",
+    // 可以扩展当前的配置，让其继承自其他的配置信息，可以跟字符串或者数组（多个）
+    // extends: 'eslint:recommended',
     "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": "latest"
+        "ecmaVersion": "latest",
+        sourceType: 'module'
     },
-    "plugins": [
-        "react",
-        "@typescript-eslint"
-    ],
+    // 自定义的一些规则
     "rules": {
+        "no-unused-vars": "off", // error off warn
     }
 }

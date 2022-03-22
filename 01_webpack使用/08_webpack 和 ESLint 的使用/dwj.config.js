@@ -8,7 +8,7 @@ module.exports = {
   // 控制是否生成，如何生成 sourceMap
   devtool: 'cheap-module-source-map',
   // 入口文件
-  entry: './src/ts.index.ts',
+  entry: './src/index.js',
   // entry: './src/common.js',
   // 出口文件
   output: {
@@ -25,17 +25,19 @@ module.exports = {
         // 排除
         exclude: /node_modules/,
         use: [
-          {
-            loader: 'babel-loader',
-            // options: {
-            //   presets: [
-            //     '@babel/preset-env'
-            //   ],
-            //   // plugins: [
-            //   //   '一个个插件'
-            //   // ]
-            // }
-          }
+          'babel-loader',
+          // {
+          //   loader: 'babel-loader',
+          //   // options: {
+          //   //   presets: [
+          //   //     '@babel/preset-env'
+          //   //   ],
+          //   //   // plugins: [
+          //   //   //   '一个个插件'
+          //   //   // ]
+          //   // }
+          // },
+          "eslint-loader"
         ]
       },
       {
