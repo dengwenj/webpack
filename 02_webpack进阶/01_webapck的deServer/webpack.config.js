@@ -11,6 +11,10 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
+  // 用来配置 dev-webpack-server 的
+  devServer: {
+    hot: true
+  },
   plugins: [
     new HTMLWebpackPlugin({
       template: './index.html'
