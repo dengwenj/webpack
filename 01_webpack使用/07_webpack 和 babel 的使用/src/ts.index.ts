@@ -4,4 +4,6 @@ const foo = (info: string) => {
   console.log(info)
 }
 
+const p = new Promise(() => {})
+
 foo(info)

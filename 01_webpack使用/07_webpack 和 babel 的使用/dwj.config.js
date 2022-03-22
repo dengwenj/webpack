@@ -42,7 +42,10 @@ module.exports = {
         test: /\.ts$/,
         use: [
           {
-            loader: 'ts-loader'
+            // 本质上依赖于 TypeScript（typescript compiler）
+            // loader: 'ts-loader'
+            // 不依赖
+            loader: 'babel-loader'
           }
         ]
       }
