@@ -5,11 +5,15 @@
  */
 
 import './ww'
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ReactApp from './App.jsx'
 
-console.log('hello webpack1111111nnnnnnn')
+import { createApp } from 'vue'
+import VueApp from './App.vue'
+
+console.log('hello webpack1111111nnnnnnn11111nide ')
 
 console.log('通过 watch 监听源代码的变化')
 
@@ -20,3 +24,6 @@ console.log('通过 watch 监听源代码的变化')
 // }
 
 ReactDOM.render(<ReactApp />, document.getElementById('app'))
+
+const app = createApp(VueApp)
+app.mount('#root')

@@ -1,6 +1,7 @@
 const path = require("path")
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader/dist/index')
 
 module.exports = {
   mode: 'development',
@@ -22,6 +23,17 @@ module.exports = {
       {
         test: /\.jsx?$/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.vue$/i,
+        loader: 'vue-loader'
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
       }
     ]
   },
@@ -29,6 +41,7 @@ module.exports = {
     new HTMLWebpackPlugin({
       template: './index.html'
     }),
-    new ReactRefreshWebpackPlugin()
+    new ReactRefreshWebpackPlugin(),
+    new VueLoaderPlugin()
   ]
 }
