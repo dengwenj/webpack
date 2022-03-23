@@ -29,7 +29,7 @@ module.exports = {
     },
     // host: '0.0.0.0',
     port: 3333,
-    open: true,
+    // open: true,
     compress: true, // 开启 gzip ，性能压缩
     // 跨域，这种解决办法是开发环境下的解决方案
     proxy: {
@@ -41,7 +41,9 @@ module.exports = {
         secure: false, // https
         changeOrigin: true
       }
-    }
+    },
+    // 主要的作用是解决SPA页面在路由跳转之后，进行页面刷新时，返回404的错误。
+    historyApiFallback: true
   },
   module: {
     rules: [
