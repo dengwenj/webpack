@@ -28,9 +28,20 @@ module.exports = {
       directory: path.resolve(__dirname, './dwj')
     },
     // host: '0.0.0.0',
-    port: 2217,
+    port: 3333,
     open: true,
-    compress: true
+    compress: true, // 开启 gzip ，性能压缩
+    // 跨域，这种解决办法是开发环境下的解决方案
+    proxy: {
+      '/api': {
+        target: 'http://139.196.212.216:2217',
+        pathRewrite: {
+          '^/api': ''
+        },
+        secure: false, // https
+        changeOrigin: true
+      }
+    }
   },
   module: {
     rules: [
