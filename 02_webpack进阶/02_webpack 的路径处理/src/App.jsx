@@ -3,7 +3,7 @@ import './react.css'
 
 
 export default function App() {
-  const [message, setMessage] = useState('hello reaaact1111aaaggga')
+  const [message, setMessage] = useState('hello re11aaa11ct1111aaaggga')
 
   return (
     <h2 className="react">{message}</h2>

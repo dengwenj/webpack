@@ -16,8 +16,10 @@ module.exports = {
     // 在打包之后的静态资源前面进行一个路径的拼接 原来 bundle.js 现在 /bundle.js
     publicPath: '/'
   },
-  // 用来配置 dev-webpack-server 的
+  // 用来配置 dev-webpack-server 的,为开发过程中开启一个本地服务
   devServer: {
+    // 启用热模块替换功能，在构建失败时不刷新页面作为回退
+    hot: 'only',
     hot: true,
     // publicPath: '/'
     // 现在是 static 不是 contentBase 了
