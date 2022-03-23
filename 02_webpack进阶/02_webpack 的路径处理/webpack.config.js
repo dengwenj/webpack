@@ -16,6 +16,15 @@ module.exports = {
     // 在打包之后的静态资源前面进行一个路径的拼接 原来 bundle.js 现在 /bundle.js
     publicPath: '/'
   },
+  // 用来设置模块如何被解析的
+  resolve: {
+    // 尝试按顺序解析这些后缀名
+    extensions: ['.js', '.json', '.wasm', '.jsx', '.tsx', '.ts', '.vue'],
+    // 别名
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    }
+  },
   // 用来配置 dev-webpack-server 的,为开发过程中开启一个本地服务
   devServer: {
     // 启用热模块替换功能，在构建失败时不刷新页面作为回退
@@ -45,6 +54,7 @@ module.exports = {
     // 主要的作用是解决SPA页面在路由跳转之后，进行页面刷新时，返回404的错误。
     historyApiFallback: true
   },
+  // loader
   module: {
     rules: [
       {
@@ -64,6 +74,7 @@ module.exports = {
       }
     ]
   },
+  // 插件
   plugins: [
     new HTMLWebpackPlugin({
       template: './index.html'
