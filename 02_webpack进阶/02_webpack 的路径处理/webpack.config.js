@@ -26,7 +26,11 @@ module.exports = {
     // 该配置项允许配置从目录提供静态文件的选项（默认是 'public' 文件夹）。将其设置为 false 以禁用
     static: {
       directory: path.resolve(__dirname, './dwj')
-    }
+    },
+    // host: '0.0.0.0',
+    port: 2217,
+    open: true,
+    compress: true
   },
   module: {
     rules: [
