@@ -18,7 +18,13 @@ module.exports = {
   },
   // 用来配置 dev-webpack-server 的
   devServer: {
-    hot: true
+    hot: true,
+    // publicPath: '/'
+    // 现在是 static 不是 contentBase 了
+    // 该配置项允许配置从目录提供静态文件的选项（默认是 'public' 文件夹）。将其设置为 false 以禁用
+    static: {
+      directory: path.resolve(__dirname, './dwj')
+    }
   },
   module: {
     rules: [
