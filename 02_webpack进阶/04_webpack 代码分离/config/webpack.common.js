@@ -8,8 +8,10 @@ const productionConfig = require('./webpack.production')
 
 const commonConfig = {
   entry: {
-    index: './src/index.js',
-    main: './src/main.js'
+    index: { import: './src/index.js', dependOn: 'shared' },
+    main: { import: './src/main.js', dependOn: 'shared' },
+    // lodash: 'lodash'
+    shared: ['lodash', 'dayjs']
   },
   output: {
     filename: '[name].bundle.js',
