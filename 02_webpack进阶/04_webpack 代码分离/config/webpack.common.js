@@ -1,6 +1,7 @@
 const { merge } = require('webpack-merge')
 const { VueLoaderPlugin } = require('vue-loader/dist/index')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
+const TerserPlugin = require("terser-webpack-plugin");
 
 const resolveApp = require('./paths')
 const developmentConfig = require('./webpack.development')
@@ -8,10 +9,8 @@ const productionConfig = require('./webpack.production')
 
 const commonConfig = {
   entry: {
-    index: { import: './src/index.js', dependOn: 'shared' },
-    main: { import: './src/main.js', dependOn: 'shared' },
-    // lodash: 'lodash'
-    shared: ['lodash', 'dayjs']
+    index: './src/index.js',
+    main: './src/main.js'
   },
   output: {
     filename: '[name].bundle.js',
@@ -22,6 +21,17 @@ const commonConfig = {
     extensions: ['.js', '.json', '.wasm', '.jsx', '.tsx', '.ts', '.vue'],
     alias: {
       '@': resolveApp('src')
+    }
+  },
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        extractComments: false
+      })
+    ],
+    splitChunks: {
+      // 同步异步的都抽离
+      chunks: 'all'
     }
   },
   module: {
