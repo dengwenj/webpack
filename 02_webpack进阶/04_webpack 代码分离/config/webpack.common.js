@@ -15,9 +15,9 @@ const commonConfig = (isProduction) => {
       main: './src/main.js' 
     },
     output: {
-      filename: 'js/[name].bundle.js',
+      filename: 'js/[name].[chunkhash:6].bundle.js',
       // 分包的文件名
-      chunkFilename: 'js/[name].[hash:6].chunk.js',
+      chunkFilename: 'js/[name].[contenthash:6].chunk.js',
       path: resolveApp('dist'),
       // publicPath: '/'
     },
