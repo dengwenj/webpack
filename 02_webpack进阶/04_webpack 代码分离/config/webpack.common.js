@@ -35,7 +35,7 @@ const commonConfig = {
     // natural: 使用自然数
     // named: 使用包所在目录作为 name(开发环境推荐)
     // deterministic: 生成 id，针对相同文件生成的 id 是不变的
-    chunkIds: 'deterministic',
+    // chunkIds: 'deterministic', 默认生成
     // 分包 分离  防止重复
     splitChunks: {
       // 同步异步的都抽离 async initial
@@ -58,7 +58,16 @@ const commonConfig = {
           priority: -20
         }
       }
-    }
+    },
+    // true/multiple 多个 runtime 包
+    // single 一个 runtime 包
+    // 对象
+    // runtimeChunk: {
+    //   name(entrypoint) {
+    //     return `dwj-${entrypoint.name}`
+    //   }
+    // }
+    runtimeChunk: 'single'
   },
   module: {
     rules: [
