@@ -19,6 +19,11 @@ const commonConfig = {
     path: resolveApp('dist'),
     // publicPath: '/'
   },
+  // 防止将某些 improt 的包打包到 bundle 中，而是在运行时再去从外部获取这些扩展依赖， cdn
+  externals: {
+    lodash: '_',
+    dayjs: 'dayjs'
+  },
   resolve: {
     extensions: ['.js', '.json', '.wasm', '.jsx', '.tsx', '.ts', '.vue'],
     alias: {
@@ -41,11 +46,11 @@ const commonConfig = {
       // 同步异步的都抽离 async initial
       chunks: 'all',
       // 最小尺寸，如果拆分出来一个，那么拆分出来的这个包的大小最小为 minSize
-      minSize: 20000,
+      // minSize: 20000,
       // 将大于 maxSize 的包，拆分成不小于 minSize 的包
-      maxSize: 20000,
+      // maxSize: 20000,
       // minChunks 表示引入的包，至少被导入了几次
-      minChunks: 1,
+      // minChunks: 1,
       cacheGroups: {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
