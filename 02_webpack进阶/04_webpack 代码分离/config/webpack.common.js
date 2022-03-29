@@ -17,7 +17,7 @@ const commonConfig = {
     // 分包的文件名
     chunkFilename: '[name].[hash:6].chunk.js',
     path: resolveApp('dist'),
-    publicPath: '/'
+    // publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.json', '.wasm', '.jsx', '.tsx', '.ts', '.vue'],
