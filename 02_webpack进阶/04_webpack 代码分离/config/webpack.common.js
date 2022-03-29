@@ -10,7 +10,7 @@ const productionConfig = require('./webpack.production')
 const commonConfig = {
   entry: {
     index: './src/index.js',
-    main: './src/main.js'
+    main: './src/main.js' 
   },
   output: {
     filename: '[name].bundle.js',
@@ -23,15 +23,35 @@ const commonConfig = {
       '@': resolveApp('src')
     }
   },
+  // 优化
   optimization: {
     minimizer: [
       new TerserPlugin({
         extractComments: false
       })
     ],
+    // 分包 分离
     splitChunks: {
-      // 同步异步的都抽离
-      chunks: 'all'
+      // 同步异步的都抽离 async initial
+      chunks: 'all',
+      // 最小尺寸，如果拆分出来一个，那么拆分出来的这个包的大小最小为 minSize
+      minSize: 20000,
+      // 将大于 maxSize 的包，拆分成不小于 minSize 的包
+      maxSize: 20000,
+      // minChunks 表示引入的包，至少被导入了几次
+      minChunks: 1,
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          filename: '[id]_vendors.js',
+          priority: -10
+        },
+        default: {
+          minChunks: 2,
+          filename: 'common_[id].js',
+          priority: -20
+        }
+      }
     }
   },
   module: {
