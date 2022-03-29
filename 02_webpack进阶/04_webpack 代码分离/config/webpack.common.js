@@ -14,6 +14,8 @@ const commonConfig = {
   },
   output: {
     filename: '[name].bundle.js',
+    // 分包的文件名
+    chunkFilename: '[name].[hash:6].chunk.js',
     path: resolveApp('dist'),
     publicPath: '/'
   },
@@ -77,7 +79,7 @@ const commonConfig = {
       }
     ]
   },
-  plugins: [
+  plugins: [ 
     new HTMLWebpackPlugin({
       template: './index.html'
     }),

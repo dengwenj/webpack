@@ -5,10 +5,10 @@ console.log('index webpack')
 console.log(_.join(['d', 'w', 'index']))
 console.log(dayjs())
 
-import('./foo').then((res) => {
+import(/* webpackChunkName: 'foo' */'./foo').then((res) => {
   console.log(res)
 })
 
-import('./bar').then((res) => {
+import(/* webpackChunkName: 'bar' */'./bar').then((res) => {
   console.log(res)
 })
