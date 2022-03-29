@@ -1,6 +1,8 @@
 import _ from 'lodash'
 import dayjs from 'dayjs'
 
+import './index.css'
+
 console.log('main webpack')
 console.log(_.join(['d', 'w', 'main']))
 console.log(dayjs())

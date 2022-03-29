@@ -1,4 +1,5 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const isProduction = true
 
@@ -10,6 +11,9 @@ module.exports = {
     dayjs: 'dayjs'
   },
   plugins: [
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[hash:6].css'
+    })
   ]
 }
