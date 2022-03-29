@@ -19,11 +19,6 @@ const commonConfig = {
     path: resolveApp('dist'),
     // publicPath: '/'
   },
-  // 防止将某些 improt 的包打包到 bundle 中，而是在运行时再去从外部获取这些扩展依赖， cdn
-  externals: {
-    lodash: '_',
-    dayjs: 'dayjs'
-  },
   resolve: {
     extensions: ['.js', '.json', '.wasm', '.jsx', '.tsx', '.ts', '.vue'],
     alias: {
