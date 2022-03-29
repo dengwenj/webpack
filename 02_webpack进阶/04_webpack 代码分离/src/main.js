@@ -8,7 +8,12 @@ console.log(dayjs())
 const buttonEl = document.createElement('button')
 buttonEl.innerHTML = '懒加载'
 buttonEl.addEventListener('click', () => {
-  import(/* webpackChunkName: 'element' */'./element').then(({ default: elementDiv }) => {
+  import(
+    /* webpackChunkName: 'element' */
+    /* webpackPrefetch: true */
+    /* webpackPreload: true */
+    './element'
+  ).then(({ default: elementDiv }) => {
     document.body.appendChild(elementDiv)
   })
 })
