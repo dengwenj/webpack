@@ -4,3 +4,11 @@ import dayjs from 'dayjs'
 console.log('index webpack')
 console.log(_.join(['d', 'w', 'index']))
 console.log(dayjs())
+
+import('./foo').then((res) => {
+  console.log(res)
+})
+
+import('./bar').then((res) => {
+  console.log(res)
+})

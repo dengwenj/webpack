@@ -30,7 +30,7 @@ const commonConfig = {
         extractComments: false
       })
     ],
-    // 分包 分离
+    // 分包 分离  防止重复
     splitChunks: {
       // 同步异步的都抽离 async initial
       chunks: 'all',
