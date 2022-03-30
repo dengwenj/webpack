@@ -1,3 +1,5 @@
+import './index.css'
+
 function sum(num1, num2) {
   return arguments[0] + arguments[1]
 }
