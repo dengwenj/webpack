@@ -3,6 +3,8 @@ const { VueLoaderPlugin } = require('vue-loader/dist/index')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const TerserPlugin = require("terser-webpack-plugin")
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const PurgeCSSWebpackPlugin = require('purgecss-webpack-plugin')
+const glob = require('glob')
 
 const resolveApp = require('./paths')
 const developmentConfig = require('./webpack.development')
@@ -104,7 +106,15 @@ const commonConfig = (isProduction) => {
       new HTMLWebpackPlugin({
         template: './index.html'
       }),
-      new VueLoaderPlugin()
+      new VueLoaderPlugin(),
+      new PurgeCSSWebpackPlugin({
+        paths: glob.sync(`${resolveApp('./src')}/**/*`, { nodir: true }),
+        safelist() {
+          return {
+            standard: ['body', 'html']
+          }
+        }
+      })
     ]
   }
 }
