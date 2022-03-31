@@ -104,7 +104,20 @@ const commonConfig = (isProduction) => {
     },
     plugins: [ 
       new HTMLWebpackPlugin({
-        template: './index.html'
+        template: './index.html',
+        cache: true, // 表示用不用缓存。第二次打包和第一次打包的时候一样，会使用之前的
+        minify: isProduction ? {
+          removeComments: true, // 要不要移除一些注释 
+          removeRedundantAttributes: true, // 是否移除多余的属性
+          removeEmptyAttributes: true, // 是否移除空属性
+          collapseWhitespace: true, // 要不要有空格
+          minifyCSS: true, // 丑化 css style 标签
+          minifyJS: { // 丑化 js 
+            mangle: {
+              toplevel: true 
+            }
+          }
+        } : false
       }),
       new VueLoaderPlugin(),
       // css 实现 tree shaking
