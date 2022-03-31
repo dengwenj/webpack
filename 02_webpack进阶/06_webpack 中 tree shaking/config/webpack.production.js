@@ -3,6 +3,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require("terser-webpack-plugin")
 const cssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin')
 const CompressionWebpackplugin = require('compression-webpack-plugin')
+const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'production',
@@ -43,6 +45,7 @@ module.exports = {
     }),
     new CompressionWebpackplugin({
       test: /\.(css|js)$/i
-    }) 
+    }),
+  new InlineChunkHtmlPlugin(HTMLWebpackPlugin, [/runtime.*\.js/])
   ]
 }
