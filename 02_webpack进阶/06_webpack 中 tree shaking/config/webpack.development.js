@@ -6,6 +6,7 @@ const isProduction = false
 
 module.exports = {
   mode: 'development',
+  devtool: 'source-map',
   devServer: {
     hot: 'only',
     hot: true,

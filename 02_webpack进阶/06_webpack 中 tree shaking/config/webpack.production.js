@@ -2,6 +2,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require("terser-webpack-plugin")
 const cssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin')
+const CompressionWebpackplugin = require('compression-webpack-plugin')
 
 module.exports = {
   mode: 'production',
@@ -39,6 +40,9 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:6].css'
-    })
+    }),
+    new CompressionWebpackplugin({
+      test: /\.(css|js)$/i
+    }) 
   ]
 }

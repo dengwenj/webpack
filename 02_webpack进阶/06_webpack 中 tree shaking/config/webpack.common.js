@@ -107,14 +107,15 @@ const commonConfig = (isProduction) => {
         template: './index.html'
       }),
       new VueLoaderPlugin(),
-      new PurgeCSSWebpackPlugin({
-        paths: glob.sync(`${resolveApp('./src')}/**/*`, { nodir: true }),
-        safelist() {
-          return {
-            standard: ['body', 'html']
-          }
-        }
-      })
+      // css 实现 tree shaking
+      // new PurgeCSSWebpackPlugin({
+      //   paths: glob.sync(`${resolveApp('./src')}/**/*`, { nodir: true }),
+      //   safelist() {
+      //     return {
+      //       standard: ['body', 'html']
+      //     }
+      //   }
+      // })
     ]
   }
 }
