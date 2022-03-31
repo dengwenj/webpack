@@ -46,6 +46,6 @@ module.exports = {
     new CompressionWebpackplugin({
       test: /\.(css|js)$/i
     }),
-  new InlineChunkHtmlPlugin(HTMLWebpackPlugin, [/runtime.*\.js/])
+    new InlineChunkHtmlPlugin(HTMLWebpackPlugin, [/runtime.*\.js/])
   ]
 }
