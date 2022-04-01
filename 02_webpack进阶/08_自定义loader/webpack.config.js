@@ -13,11 +13,19 @@ module.exports = {
       {
         test: /\.js$/,
         use: [
+          // {
+          //   loader: 'dwj-loader001',
+          //   options: {
+          //     name: 'dwj',
+          //     age: '1'
+          //   }
+          // }
           {
-            loader: 'dwj-loader001',
+            loader: 'dwjbabel-loader',
             options: {
-              name: 'dwj',
-              age: '1'
+              presets: [
+                '@babel/preset-env'
+              ]
             }
           }
         ]
