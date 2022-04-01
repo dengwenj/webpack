@@ -13,23 +13,29 @@ module.exports = {
       {
         test: /\.js$/,
         use: [
-          'dwj-loader001'
+          {
+            loader: 'dwj-loader001',
+            options: {
+              name: 'dwj',
+              age: '1'
+            }
+          }
         ]
       },
-      {
-        test: /\.js$/,
-        use: [
-          'dwj-loader002'
-        ],
-        // 最先执行这个 loader, post 值是最后执行这个 loader
-        enforce: 'pre',
-      },
-      {
-        test: /\.js$/,
-        use: [
-          'dwj-loader003'
-        ]
-      }
+      // {
+      //   test: /\.js$/,
+      //   use: [
+      //     'dwj-loader002'
+      //   ],
+      //   // 最先执行这个 loader, post 值是最后执行这个 loader
+      //   enforce: 'pre',
+      // },
+      // {
+      //   test: /\.js$/,
+      //   use: [
+      //     'dwj-loader003'
+      //   ]
+      // }
     ]
   },
   resolveLoader: {
