@@ -13,9 +13,21 @@ module.exports = {
       {
         test: /\.js$/,
         use: [
-          'dwj-loader001',
-          'dwj-loader002',
-          'dwj-loader003',
+          'dwj-loader001'
+        ]
+      },
+      {
+        test: /\.js$/,
+        use: [
+          'dwj-loader002'
+        ],
+        // 最先执行这个 loader, post 值是最后执行这个 loader
+        enforce: 'pre',
+      },
+      {
+        test: /\.js$/,
+        use: [
+          'dwj-loader003'
         ]
       }
     ]
