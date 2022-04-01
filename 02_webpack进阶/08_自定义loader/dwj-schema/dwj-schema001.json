@@ -9,5 +9,6 @@
       "type": "number",
       "description": "请输入年龄"
     }
-  }
+  },
+  "additionalProperties": true
 }

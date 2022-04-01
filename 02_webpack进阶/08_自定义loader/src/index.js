@@ -1,3 +1,5 @@
+import './webpack.md'
+
 const hl = 'hello loader'
 
 const foo = () => {

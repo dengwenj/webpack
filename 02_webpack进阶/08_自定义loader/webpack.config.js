@@ -11,6 +11,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.md$/i,
+        use: 'md-loader'
+      },
+      {
         test: /\.js$/,
         use: [
           // {
