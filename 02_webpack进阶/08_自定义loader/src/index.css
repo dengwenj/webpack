@@ -3,3 +3,7 @@ pre {
   border-radius: 5px;
   padding: 20px;
 }
+
+div { 
+  width: 500px;
+}

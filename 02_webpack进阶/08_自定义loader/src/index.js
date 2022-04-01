@@ -7,4 +7,8 @@ const foo = () => {
   console.log('foo')
 }
 
-document.body.innerHTML = code
+const divEl = document.createElement('div')
+
+divEl.innerHTML = code
+
+document.body.appendChild(divEl)
