@@ -5,14 +5,18 @@ module.exports = {
   context: __dirname,
   entry: './src/index.js',
   output: {
-    filename: 'bunld.js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
   module: {
     rules: [
       {
         test: /\.js$/,
-        use: 'dwj-loader001'
+        use: [
+          'dwj-loader001',
+          'dwj-loader002',
+          'dwj-loader003',
+        ]
       }
     ]
   },

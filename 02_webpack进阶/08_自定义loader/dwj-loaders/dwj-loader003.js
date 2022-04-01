@@ -1,8 +1,8 @@
 module.exports = function (content) {
-  console.log(content + '001')
+  console.log(content + '003')
   return content + 'dengnwenjie'
 }
 
 module.exports.pitch = function () {
-  console.log('pitch001')
+  console.log('pitch003')
 }
