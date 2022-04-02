@@ -12,6 +12,11 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin(),
-    new AutoUploadPlugin()
+    new AutoUploadPlugin({
+      host: '传入的',
+      username: '传入的',
+      password: '传入的',
+      remotePath: '传入的'
+    })
   ]
 }
