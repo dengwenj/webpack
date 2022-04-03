@@ -1,35 +1,21 @@
-const { series, parallel } = require('gulp')
+const { src, dest, watch } = require('gulp')
 
-const foo1 = (cb) => {
-  setTimeout(() => {
-    console.log('foo1')
-    cb()
-  }, 2000)
+const babel = require('gulp-babel')
+const terser = require('gulp-terser')
+
+const jsTask = () => {
+  // 文件输入输出
+  return (
+    src('./src/**/*.js')
+      .pipe(babel({ presets: ['@babel/preset-env'] }))
+      .pipe(terser({ mangle: { toplevel: true } }))
+      .pipe(dest('dist'))
+  )
 }
 
-const foo2 = (cb) => {
-  setTimeout(() => {
-    console.log('foo2')
-    cb()
-  }, 2000)
-}
-
-const foo3 = (cb) => {
-  setTimeout(() => {
-    console.log('foo3')
-    cb()
-  }, 2000)
-}
-
-// 串行
-const seriesTask = series(foo1, foo2, foo3)
-// 并行
-const parallelTask = parallel(foo1, foo2, foo3)
-// 再组合
-const comTask = series(seriesTask, parallelTask)
+// 监听只要 文件发生改变就要重新输出
+watch('./src/**/*.js', jsTask)
 
 module.exports = {
-  seriesTask,
-  parallelTask,
-  comTask
+  jsTask
 }
