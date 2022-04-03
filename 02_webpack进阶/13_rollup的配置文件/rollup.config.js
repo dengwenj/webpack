@@ -1,27 +1,25 @@
+import commonjs from "@rollup/plugin-commonjs";
+import resolve from "@rollup/plugin-node-resolve";
+import babel from "@rollup/plugin-babel";
+import { terser } from "rollup-plugin-terser";
+
 export default {
-  input: './src/index.js',
-  output: [
-    {
-      format: 'umd',
-      name: 'dwj',
-      file: 'dist/dwj.umd.js'
+  input: "./src/main.js",
+  output: {
+    format: "umd",
+    name: "whyUtils",
+    file: "dist/why.umd.js",
+    globals: {
+      lodash: "_",
     },
-    {
-      format: 'cjs',
-      file: 'dist/dwj.cjs.js'
-    },
-    {
-      format: 'es',
-      file: 'dist/dwj.cjs.js'
-    },
-    {
-      format: 'amd',
-      file: 'dist/dwj.amd.js'
-    },
-    {
-      format: 'iife',
-      name: 'd',
-      file: 'dist/dwj.browser.js'
-    }
-  ]
-}
+  },
+  external: ["lodash"],
+  plugins: [
+    commonjs(),
+    // resolve()
+    babel({
+      babelHelpers: "bundled",
+    }),
+    terser(),
+  ],
+};
