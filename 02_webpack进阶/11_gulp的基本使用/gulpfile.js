@@ -1,23 +1,35 @@
-const gulp = require('gulp')
+const { series, parallel } = require('gulp')
 
-// 定义一个任务
-const foo = (cb) => {
-  console.log('foo')
-  cb()
+const foo1 = (cb) => {
+  setTimeout(() => {
+    console.log('foo1')
+    cb()
+  }, 2000)
 }
+
+const foo2 = (cb) => {
+  setTimeout(() => {
+    console.log('foo2')
+    cb()
+  }, 2000)
+}
+
+const foo3 = (cb) => {
+  setTimeout(() => {
+    console.log('foo3')
+    cb()
+  }, 2000)
+}
+
+// 串行
+const seriesTask = series(foo1, foo2, foo3)
+// 并行
+const parallelTask = parallel(foo1, foo2, foo3)
+// 再组合
+const comTask = series(seriesTask, parallelTask)
 
 module.exports = {
-  foo
-}
-
-// gulp 4 之前，定义任务的方式
-gulp.task('bar', (cb) => {
-  console.log('bar')
-  cb()
-})
-
-// 默认的任务
-module.exports.default = (cb) => {
-  console.log('default')
-  cb()
+  seriesTask,
+  parallelTask,
+  comTask
 }
